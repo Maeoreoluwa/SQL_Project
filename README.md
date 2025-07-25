@@ -1,6 +1,14 @@
 # AxiaStores SQL Database Project
 ## Project Overview
 This project demonstrates a complete SQL based solution for an Electronics & Accessories retail business, *AxiaStores*. It involves designing and implementing a relational database with three core tables, Customer, Product, and Orders. While performing various analytical queries to extract insights.
+## Table of Content
+- [Project Overview](#project-overview)
+- [Objectives](#objectives)
+- [Tools and Methodologies](#tools-and-methodologies)
+- [Key Analytical Questions](#key-analytical-questions)
+- [Samples of SQL Queries and Results](#samples-of-sql-queries-and-results)
+- [Answers to Analytical Questions and Results](#answers-to-analytical-questions-and-results)
+- [References](#references)
 ## Objectives
 The primary goal of this project is to
 - Create a sample relational database
@@ -57,3 +65,59 @@ join OrdersTB o on c.CustomerID = o.CustomerID
 join ProductTB p on o.ProductID = p.ProductID
 where p.ProductID=1
 </pre>
+2. *List all customers’ full names in ascending alphabetical order (LastName, then FirstName)*
+<pre>
+--List all customers’ full names in ascending alphabetical order (LastName, then FirstName)
+SELECT FirstName, LastName
+FROM CustomerTB
+ORDER BY LastName ASC, FirstName ASC;
+</pre>
+3. *Show every order together with the customer’s full name, the product name, quantity, unit price, total price (quantity × unit price), and order date.*
+<pre>
+--Show every order together with the customer’s full name, the product name, quantity, unit price, total price (quantity × unit price), and order date.
+select 
+c.FirstName, 
+c.LastName,
+p.productname, 
+o.quantity, 
+p.unitprice,  
+sum (p.unitprice * o.quantity) as 'total price'
+from CustomerTB c
+join orderstb o on c.customerid = c.customerid
+join producttb p on o.productid = p.productid
+GROUP BY 
+    c.FirstName, c.LastName, p.ProductName, o.Quantity,p.UnitPrice;
+</pre>
+4. *Show average sales per product category and sort in descending order*
+<pre>
+--Show average sales per product category and sort in descending order
+SELECT 
+    p.Category,
+    AVG(o.Quantity) AS AverageSales
+FROM ProductTB p
+JOIN OrdersTB o ON p.ProductID = o.ProductID
+GROUP BY p.Category
+ORDER BY AverageSales DESC;
+</pre>
+5. *Which city generated the highest revenue for AxiaStores?*
+<pre>
+--Which city generated the highest revenue for AxiaStores?
+SELECT 
+    c.City,
+    SUM(p.UnitPrice) AS TotalUnitPrice,
+    SUM(o.Quantity) AS TotalQuantity,
+    SUM(p.UnitPrice * o.Quantity) AS TotalRevenue
+FROM 
+    CustomerTB c
+JOIN 
+    OrdersTB o ON c.CustomerID = o.CustomerID
+JOIN 
+    ProductTB p ON o.ProductID = p.ProductID
+GROUP BY 
+    c.City
+ORDER BY 
+    TotalRevenue DESC;
+</pre>
+### References
+- [Axia Africa SQL Exam](https://drive.google.com/file/d/13chnDFUr7NqbyPSRqy65d9pgeVCM86Ix/view)
+- [Axia Africa](https://student.axia.africa)
