@@ -24,3 +24,26 @@ The queries in this project aim to answer the following key questions based on t
 <pre>
 CREATE DATABASE [AxiaStores]; --SQL Server
 </pre>
+2. *CREATING CustomerTB*
+<pre>
+CREATE TABLE CustomerTB
+(CustomerID INT PRIMARY KEY,
+FirstName VARCHAR (255),
+LastName VARCHAR (255),
+Email VARCHAR (255),
+Phone VARCHAR (50),
+City VARCHAR (100));
+INSERT INTO CustomerTB (CustomerID, FirstName, LastName, Email, Phone, City)
+VALUES
+(1, 'Musa', 'Ahmed', 'musa.ahmed@hotmail.com', '0803‑123‑0001', 'Lagos'),
+('2', 'Ray', 'Samson', 'ray.samson@yahoo.com', '0803‑123‑0002', 'Ibadan'),
+('3', 'Chinedu', 'Okafor', 'chinedu.ok@yahoo.com', '0803‑123‑0003', 'Enugu'),
+('4', 'Dare', 'Adewale', 'dare.ad@hotmail.com', '0803‑123‑0004', 'Abuja'),
+('5', 'Efe', 'Ojo', 'efe.oj@gmail.com', '0803‑123‑0005', 'Port Harcourt'),
+('6', 'Aisha', 'Bello', 'aisha.bello@hotmail.com', '0803‑123‑0006', 'Kano'),
+('7', 'Tunde', 'Salami', 'tunde.salami@yahoo.com
+('8', 'Nneka', 'Umeh', 'nneka.umeh@gmail.com', '0803‑123‑0008', 'Owerri'),
+('9', 'Kelvin', 'Peters', 'kelvin.peters@hotmail.com', '0803‑123‑0009', 'Asaba'),
+('10', 'Blessing', 'Mark', 'Blessing.mark@gmail.com', '0803‑123‑0010', 'Uyo');
+</pre>
+![image alt]
