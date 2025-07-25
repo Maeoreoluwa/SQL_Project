@@ -49,7 +49,7 @@ VALUES
 ![image alt]
 ## Answers to Analytical Questions and Results
 
-1. *Return the FirstName and Email of every customer who has ever purchased the product “Wireless Mouse”*
+1. ***Return the FirstName and Email of every customer who has ever purchased the product “Wireless Mouse”***
 <pre>
 --Return the FirstName and Email of every customer who has ever purchased the product “Wireless Mouse”
 select c.firstname, c.email from customertb c
